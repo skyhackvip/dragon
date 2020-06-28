@@ -29,7 +29,7 @@ func post(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(e)
 		return
 	}
-	os.Create("/home/rong/data/temp/"+t.Uuid+".dat") //生成uuid.dat
+	os.Create("log/temp/"+t.Uuid+".dat") //生成uuid.dat
 	fmt.Println("ok")
 
 	w.Write([]byte(uuid))

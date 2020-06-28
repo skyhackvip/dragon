@@ -28,7 +28,7 @@ func StartLocate() {
 		if e != nil {
 			panic(e)
 		}
-		/*file_path := "/home/rong/data/objects/" + object
+		/*file_path := "log/objects/" + object
 		if localExists(file_path) {
 			q.Send(msg.ReplyTo, ip.String())
 		}*/
@@ -43,7 +43,7 @@ var objects = make(map[string]int)
 var mutex sync.Mutex
 //data
 func CollectObjects() {
-	files, _ := filepath.Glob("/home/rong/data/objects/*")
+	files, _ := filepath.Glob("log/objects/*")
 	for i := range files {
 		file := strings.Split(filepath.Base(file[i]), ".")
 		if len(file) != 3 { // xxx.1.xxx

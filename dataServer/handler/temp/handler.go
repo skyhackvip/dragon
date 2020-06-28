@@ -23,7 +23,7 @@ func (t *tempInfo) id() int {
 	return id
 }
 func (t *tempInfo) writeToFile() error {
-	f,e := os.Create("/home/rong/data/temp/"+t.Uuid) //生成uuid文件并写入内容
+	f,e := os.Create("log/temp/"+t.Uuid) //生成uuid文件并写入内容
 	if e!= nil {
 		return e
 	}

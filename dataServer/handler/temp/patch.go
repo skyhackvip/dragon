@@ -18,7 +18,7 @@ func patch(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
-	infoFile := "/home/rong/data/temp/" + uuid
+	infoFile := "log/temp/" + uuid
 	datFile := infoFile + ".dat"
 
 	f, e := os.OpenFile(datFile, os.O_WRONLY|os.O_APPEND, 0) //每次向後追加內容
@@ -49,7 +49,7 @@ func patch(w http.ResponseWriter, r *http.Request) {
 }
 
 func readFromFile(uuid string)(*tempInfo, error) {
-	f,e := os.Open("/home/rong/data/temp/"+ uuid)
+	f,e := os.Open("log/temp/"+ uuid)
 	if e!=nil {
 		return nil, e
 	}

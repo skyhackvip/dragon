@@ -7,13 +7,14 @@ import (
 	"os"
 	"strings"
 )
+
 //"github.com/skyhackvip/dragon/lib/utils"
 //"net/url"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	object := strings.Split(r.URL.EscapedPath(), "/")[2]
 
-	storage_root := "/home/rong/data"
+	storage_root := "/data"
 	if r.Method == http.MethodPut { //put
 		fmt.Println("put request")
 		f, err := os.Create(storage_root + "/objects/" + object)

@@ -17,7 +17,7 @@ func put(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
-	infoFile := "/home/rong/data/temp/" + uuid
+	infoFile := "log/temp/" + uuid
 	datFile := infoFile + ".dat"
 	f, e := os.Open(datFile)
 	if e!=nil {
@@ -39,11 +39,11 @@ func put(w http.ResponseWriter, r *http.Request) {
 
 func commitTempObject(datFile string, tempinfo *tempInfo) {
 	fmt.Println("rename")
-	//os.Rename(datFile, "/home/rong/data/objects/"+tempinfo.Name)
+	//os.Rename(datFile, "log/objects/"+tempinfo.Name)
 	//locate.Add(tempinfo.Name) //加入定位内容
 	f, _ := os.Open(datFile)
 	d := url.PathEscape(utils.CaculateHash(f))
 	f.Close()
-	os.Rename(datFile, "/home/rong/data/objects/"+tempinfo.Name + "."+d)
+	os.Rename(datFile, "log/objects/"+tempinfo.Name + "."+d)
 	locate.Add(tempinfo.hash(), tempinfo.id())
 }
